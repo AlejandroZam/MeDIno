@@ -1,0 +1,1 @@
+pretrain_weights = '/content/drive/MyDrive/grad/medimagespring22/medino_vit_small_output/'

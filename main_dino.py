@@ -19,7 +19,7 @@ import time
 import math
 import json
 from pathlib import Path
-
+import config as cfg
 import numpy as np
 from PIL import Image
 import torch
@@ -254,7 +254,7 @@ def train_dino(args):
     # ============ optionally resume training ... ============
     to_restore = {"epoch": 0}
     utils.restart_from_checkpoint(
-        os.path.join(args.output_dir, "checkpoint.pth"),
+        os.path.join(cfg.pretrain_weights, "checkpoint.pth"),
         run_variables=to_restore,
         student=student,
         teacher=teacher,
@@ -263,7 +263,7 @@ def train_dino(args):
         dino_loss=dino_loss,
     )
     start_epoch = to_restore["epoch"]
-
+    start_epoch = 0
     start_time = time.time()
     print("Starting DINO training !")
     for epoch in range(start_epoch, args.epochs):
