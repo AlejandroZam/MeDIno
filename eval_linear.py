@@ -84,7 +84,6 @@ def eval_linear(args):
 
     train_transform = pth_transforms.Compose([
         pth_transforms.RandomResizedCrop(224),
-        pth_transforms.RandomHorizontalFlip(),
         pth_transforms.ToTensor(),
         pth_transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
     ])
